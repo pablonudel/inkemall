@@ -1,0 +1,159 @@
+.carousel {
+    box-shadow: $shadow;
+    height: 100%;
+
+    &:hover .carousel-caption {
+        opacity: 1;
+    }
+
+    .carousel-caption {
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.512);
+        padding: 1rem 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: $grisclaro;
+        text-shadow: 0px 0px 8px $negro;
+        transition: $transition;
+    }
+
+    .carousel-inner,
+    .carousel-inner img {
+        height: 500px;
+    }
+
+    .carousel-inner img {
+        object-fit: cover;
+    }
+}
+
+.estudio {
+    background-image: url(../media/bg-estudio.svg);
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-position: center -100px ;
+
+    @include respond(lg){
+        background-position: right -100px ;
+    }
+    @include respond(xl){
+        background-position: 2rem ;
+    }
+
+
+    @include respond(lg) {
+        align-content: center;
+    }
+}
+
+.artistas {
+    .sectionBody {
+        display: grid;
+        gap: 0.6rem;
+    }
+   
+    @include respond(sm){
+        .sectionBody{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include respond(lg) {     
+        .sectionBody{
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    @include respond(xl) {     
+        .sectionBody{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include respond(xxl) { 
+        .sectionBody{
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    
+}
+
+.perfil {
+    max-width: 100%;
+    min-height: 300px;
+    perspective: 600px;
+    
+    @include respond(sm){
+        min-height: 400px;
+    }
+    @include respond(md){
+        min-height: 310px;
+    }
+    @include respond(lg){
+        min-height: 450px;
+    }
+    @include respond(xl){
+        min-height: 310px;
+    }
+    @include respond(xxl){
+        min-height: 500px;
+    }
+    
+    .perfil_flip {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: $transition-slow;
+        transform-style: preserve-3d;
+        transform-origin: center right;
+        cursor: pointer;
+    }
+    .perfil_front, .perfil_back {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        box-shadow: $shadow;
+    }
+
+    .perfil_flip.is-flipped {
+        transform: translateX(-100%) rotateY(-180deg);
+    }
+
+    .perfil_front {
+        background-color: $negro;
+        color: black;
+        span{
+            border-radius: 0;
+            right: 0;
+            transform: none;
+            bottom: -6rem;
+            width: 100%;
+            font-family: $serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 2rem;
+            background-color: $rojo;
+            opacity: 0.8;
+            color: $naranja;
+        }
+        &:hover span {
+            bottom: 0;
+        }
+        
+    }
+    .perfil_back {
+        background-color: $rojo;
+        color: white;
+        transform: rotateY(180deg);
+        padding: 2rem;
+        justify-content: space-between;
+        h2, p{
+            margin-bottom: 1rem;
+        }
+    }
+}

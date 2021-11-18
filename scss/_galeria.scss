@@ -1,0 +1,28 @@
+.galeria{
+    background-image: url(../media/bg-galeria.svg);
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-position: -250px top ;
+
+    @include respond(sm){
+        background-position: center top ;
+    }
+    @include respond(lg){
+        background-position: right top ;
+    }
+    @include respond(xl){
+        background-position: 95% 2rem;
+    }
+    .sectionHead-galeria{
+        margin:0 2rem 5rem 2rem;
+
+        @include respond(xl){
+            margin: 0;
+            width: 100%;
+            position:fixed;
+            h1, p{
+                width: 75%;
+            }
+        }
+    }
+}
